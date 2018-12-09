@@ -3,7 +3,7 @@
 }
 .Board
 {
-  width: 800px;
+  width: 480px;
   height: 800px;
   margin-top: 20px;
   margin-right: auto;
@@ -18,4 +18,10 @@
   font-weight: bold;
   font-size: 25px;
   margin: 5px;
+}
+
+.Title
+{
+  font-size: 35px;
+  text-align: center;
 }

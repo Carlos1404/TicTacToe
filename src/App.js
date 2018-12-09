@@ -47,11 +47,13 @@ class App extends Component {
             if (this.calculateWinner(board)) {
                 return;
             }
-            board[state.lastClick] = null
-            return{
-                playerTurn: !state.playerTurn,
-                board: board,
-                lastClick: null
+            if(board[state.lastClick] != null) {
+                board[state.lastClick] = null
+                return {
+                    playerTurn: !state.playerTurn,
+                    board: board,
+                    lastClick: null
+                }
             }
         });
     }
@@ -59,13 +61,14 @@ class App extends Component {
   render() {
       let status;
       if (this.state.winner) {
-          status = 'Winner: ' + this.state.winner;
+          status = 'The winner is ' + this.state.winner + ' !';
       } else {
           status = 'Next player: ' + (this.state.playerTurn ? 'X' : 'O');
       }
 
     return (
       <div className="Board">
+          <div className="Title">Tic Tac Toe</div>
           <Score score1={this.state.score1} score2={this.state.score2}/>
           <div className="board-row">
               <Cell onClick={this.play(0)} value={this.state.board[0]} />
